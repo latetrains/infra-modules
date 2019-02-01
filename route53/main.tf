@@ -16,10 +16,11 @@ resource "aws_route53_zone" "main" {
   }
 }
 
-resource "aws_route53_record" "blog_subdomain" {
-  name = "blog"
+resource "aws_route53_record" "blog" {
+  zone_id = "${aws_route53_zone.main.zone_id}"
+  name = "blog.${var.domain_name}"
   type = "A"
-  zone_id = "${aws_route53_zone.main.id}"
+  ttl = "300"
   records = [
     "${var.blog_subdomain_ip}"
   ]
