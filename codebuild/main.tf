@@ -25,7 +25,7 @@ resource "aws_codebuild_project" "build_project" {
 
   source {
     type = "GITHUB"
-    location = "https://github.com/latetrains/infra.git"
+    location = "${var.github_repository}"
     git_clone_depth = 1
   }
 

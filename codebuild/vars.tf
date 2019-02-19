@@ -27,3 +27,8 @@ variable "role_resources" {
   description = "List of resources that the IAM role can access"
   type = "list"
 }
+
+variable "github_repository" {
+  description = "The github repository to build from"
+  type = "string"
+}
