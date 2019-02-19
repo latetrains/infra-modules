@@ -1,4 +1,4 @@
-data "aws_iam_policy_document" "terraform-assume-role-policy" {
+data "aws_iam_policy_document" "codebuild_role_policy" {
   statement {
     actions = [
       "sts:AssumeRole"
@@ -13,23 +13,19 @@ data "aws_iam_policy_document" "terraform-assume-role-policy" {
   }
 }
 
-data "aws_iam_policy_document" "terraform-full-access-policy-document" {
+data "aws_iam_policy_document" "codebuild_policy_document" {
   statement {
-    actions = [
-      "*"
-    ]
-    resources = [
-      "*"
-    ]
+    actions = "${var.role_actions}"
+    resources = "${var.role_resources}"
   }
 }
 
-resource "aws_iam_role" "terraform-full-access" {
-  name = "TerraformFullAccess"
-  assume_role_policy = "${data.aws_iam_policy_document.terraform-assume-role-policy.json}"
+resource "aws_iam_role" "codebuild_iam_role" {
+  name = "${var.role_name}"
+  assume_role_policy = "${data.aws_iam_policy_document.codebuild_role_policy.json}"
 }
 
-resource "aws_iam_role_policy" "terraform-full-access-policy" {
-  policy = "${data.aws_iam_policy_document.terraform-full-access-policy-document.json}"
-  role = "${aws_iam_role.terraform-full-access.id}"
+resource "aws_iam_role_policy" "codebuild_iam_role_policy" {
+  policy = "${data.aws_iam_policy_document.codebuild_policy_document.json}"
+  role = "${aws_iam_role.codebuild_iam_role.id}"
 }

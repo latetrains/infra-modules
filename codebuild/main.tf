@@ -6,11 +6,11 @@ terraform {
   backend "s3" {}
 }
 
-resource "aws_codebuild_project" "terraform-build" {
-  name = "Infra"
-  description = "Build Pipeline for the Latetrains.io Infrastructure"
+resource "aws_codebuild_project" "build_project" {
+  name = "${var.build_name}"
+  description = "${var.build_description}"
   build_timeout = "5"
-  service_role = "${aws_iam_role.terraform-full-access.arn}"
+  service_role = "${aws_iam_role.codebuild_iam_role.arn}"
   badge_enabled = true
 
   artifacts {
