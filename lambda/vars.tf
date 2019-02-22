@@ -26,5 +26,5 @@ variable "function_handler" {
 variable "function_filename" {
   description = "Path to the handler function"
   type = "string"
-  default = "boostrap"
+  default = "boostrap.zip"
 }
