@@ -11,4 +11,5 @@ resource "aws_lambda_function" "base_lambda" {
   handler = "${var.function_handler}"
   role = "${aws_iam_role.lambda_iam_role.arn}"
   runtime = "${var.function_runtime}"
+  filename = "${var.function_filename}"
 }

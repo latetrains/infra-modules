@@ -22,3 +22,9 @@ variable "function_handler" {
   description = "Path to the handler function"
   type = "string"
 }
+
+variable "function_filename" {
+  description = "Path to the handler function"
+  type = "string"
+  default = "boostrap"
+}
