@@ -13,6 +13,12 @@ variable "build_description" {
   type = "string"
 }
 
+variable "build_timeout" {
+  description = "Timeout for the Build"
+  type = "string"
+  default = "5"
+}
+
 variable "role_name" {
   description = "The name for the role for the build pipeline"
   type = "string"
