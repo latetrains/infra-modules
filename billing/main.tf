@@ -1,11 +1,3 @@
-provider "aws" {
-  region = "${var.aws_region}"
-}
-
-terraform {
-  backend "s3" {}
-}
-
 resource "aws_budgets_budget" "monthly_budget" {
   name = "Monthly Budget"
   budget_type = "COST"
