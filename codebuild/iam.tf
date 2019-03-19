@@ -16,7 +16,7 @@ data "aws_iam_policy_document" "codebuild_role_policy" {
 data "aws_iam_policy_document" "codebuild_policy_document" {
   statement {
     actions = "${var.role_actions}"
-    resources = ["${var.role_resources}"]
+    resources = "${var.role_resources}"
   }
 }
 
