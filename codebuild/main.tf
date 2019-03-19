@@ -1,11 +1,3 @@
-provider "aws" {
-  region = "${var.aws_region}"
-}
-
-terraform {
-  backend "s3" {}
-}
-
 resource "aws_codebuild_project" "build_project" {
   name = "${var.build_name}"
   description = "${var.build_description}"
