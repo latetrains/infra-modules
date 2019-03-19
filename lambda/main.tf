@@ -9,6 +9,7 @@ resource "aws_lambda_function" "base_lambda" {
   lifecycle {
     ignore_changes = [
       "filename",
+      "source_code_hash",
     ]
   }
 }
