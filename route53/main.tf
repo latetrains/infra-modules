@@ -7,14 +7,3 @@ resource "aws_route53_zone" "main" {
     Owner = "terraform"
   }
 }
-
-resource "aws_route53_record" "blog" {
-  zone_id = "${aws_route53_zone.main.zone_id}"
-  name    = "blog.${var.domain_name}"
-  type    = "A"
-  ttl     = "300"
-
-  records = [
-    "${var.blog_subdomain_ip}",
-  ]
-}
