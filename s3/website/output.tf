@@ -17,3 +17,7 @@ output "website" {
 output "website_endpoint" {
   value = "${aws_s3_bucket.main_bucket.website_endpoint}"
 }
+
+output "hosted_zone_id" {
+  value = "${aws_s3_bucket.main_bucket.hosted_zone_id}"
+}
