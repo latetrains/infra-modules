@@ -18,6 +18,7 @@ data "aws_iam_policy_document" "public_read_document" {
   statement {
     actions   = ["s3:GetObject"]
     resources = ["${aws_s3_bucket.main_bucket.arn}/*"]
+    principals = ["*"]
   }
 }
 
