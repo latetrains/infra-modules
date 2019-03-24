@@ -13,3 +13,15 @@ resource "aws_s3_bucket" "main_bucket" {
     Type  = "WebsiteBucket"
   }
 }
+
+data "aws_iam_policy_document" "public_read_document" {
+  statement {
+    actions   = ["s3:GetObject"]
+    resources = ["${aws_s3_bucket.main_bucket.arn}/*"]
+  }
+}
+
+resource "aws_s3_bucket_policy" "public_read_policy" {
+  bucket = "${aws_s3_bucket.main_bucket.id}"
+  policy = "${data.aws_iam_policy_document.public_read_document.json}"
+}
