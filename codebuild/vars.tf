@@ -38,3 +38,10 @@ variable "github_repository" {
   description = "The github repository to build from"
   type        = "string"
 }
+
+variable "build_image" {
+  description = "The image for the build"
+  type = "string"
+  default = "aws/codebuild/ubuntu-base:14.04"
+
+}

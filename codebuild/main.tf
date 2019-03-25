@@ -11,7 +11,7 @@ resource "aws_codebuild_project" "build_project" {
 
   environment {
     compute_type = "BUILD_GENERAL1_SMALL"
-    image        = "aws/codebuild/ubuntu-base:14.04"
+    image        = "${var.build_image}"
     type         = "LINUX_CONTAINER"
   }
 
