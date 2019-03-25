@@ -10,9 +10,10 @@ resource "aws_codebuild_project" "build_project" {
   }
 
   environment {
-    compute_type = "BUILD_GENERAL1_SMALL"
-    image        = "${var.build_image}"
-    type         = "LINUX_CONTAINER"
+    compute_type    = "BUILD_GENERAL1_SMALL"
+    image           = "${var.build_image}"
+    type            = "LINUX_CONTAINER"
+    privileged_mode = true
   }
 
   source {
@@ -20,8 +21,6 @@ resource "aws_codebuild_project" "build_project" {
     location        = "${var.github_repository}"
     git_clone_depth = 1
   }
-
-  privileged_mode = true
 
   tags {
     Owner = "terraform"
