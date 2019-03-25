@@ -21,6 +21,8 @@ resource "aws_codebuild_project" "build_project" {
     git_clone_depth = 1
   }
 
+  privileged_mode = true
+
   tags {
     Owner = "terraform"
   }
