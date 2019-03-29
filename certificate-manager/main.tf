@@ -1,7 +1,12 @@
+provider "aws" {
+  alias  = "virginia"
+  region = "us-east-1"
+}
+
 resource "aws_acm_certificate" "cert" {
   domain_name       = "${var.domain_name}"
   validation_method = "DNS"
-  provider          = "${var.provider_name}"
+  provider          = "aws.virginia"
 
   tags = {
     Owner = "terraform"
