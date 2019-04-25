@@ -12,6 +12,11 @@ data "aws_iam_policy_document" "lambda_role_policy" {
       ]
     }
   }
+
+  statement {
+    actions   = "${var.role_actions}"
+    resources = "${var.role_resources}"
+  }
 }
 
 resource "aws_iam_role" "lambda_iam_role" {
