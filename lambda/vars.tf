@@ -21,17 +21,21 @@ variable "role_name" {
 variable "role_resources" {
   description = "A list of resources this Lambda function has access to"
   type        = "list"
-  default     = []
+  default     = ["*"]
 }
 
 variable "role_actions" {
   description = "A list of actions that this Lambda function can perform"
   type        = "list"
-  default     = []
+
+  default = [
+    "logs:CreateLogGroup",
+    "logs:CreateLogStream",
+    "logs:PutLogEvents",
+  ]
 }
 
 variable "environment_variables" {
   description = "A map of environment variables to be used in the function"
   type        = "map"
-  default     = {}
 }
