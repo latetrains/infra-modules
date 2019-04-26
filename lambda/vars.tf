@@ -1,8 +1,3 @@
-variable "aws_region" {
-  description = "The region to deploy this resource in"
-  type        = "string"
-}
-
 variable "function_name" {
   description = "The lambda function name"
   type        = "string"
@@ -24,17 +19,19 @@ variable "role_name" {
 }
 
 variable "role_resources" {
-  description = ""
+  description = "A list of resources this Lambda function has access to"
   type        = "list"
+  default     = []
 }
 
 variable "role_actions" {
-  description = ""
+  description = "A list of actions that this Lambda function can perform"
   type        = "list"
+  default     = []
 }
 
 variable "environment_variables" {
-  description = ""
-  default     = {}
+  description = "A map of environment variables to be used in the function"
   type        = "map"
+  default     = {}
 }

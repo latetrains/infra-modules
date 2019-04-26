@@ -19,7 +19,7 @@ resource "aws_acm_certificate" "cert" {
 
 data "aws_route53_zone" "zone" {
   name         = "${var.domain_name}."
-  private_zone = false
+  private_zone = "${var.private_zone}"
 }
 
 resource "aws_route53_record" "cert_validation" {
