@@ -10,7 +10,11 @@ resource "aws_lambda_function" "base_lambda" {
     ignore_changes = [
       "filename",
       "source_code_hash",
-      "last_modified"
+      "last_modified",
     ]
+  }
+
+  environment {
+    variables = "${var.environment_variables}"
   }
 }

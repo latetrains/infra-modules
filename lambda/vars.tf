@@ -32,3 +32,9 @@ variable "role_actions" {
   description = ""
   type        = "list"
 }
+
+variable "environment_variables" {
+  description = ""
+  default     = {}
+  type        = "map"
+}
